@@ -3,7 +3,7 @@
 # 依赖环境
 1. PHP 5.6.0 版本及以上
 2. 从腾讯云控制台 开通相应产品
-3. 获取 SecretID、SecretKey 以及调用地址（endpoint），endpoint 为 template.tencentcloudapi.com，具体参考各产品说明。
+3. 获取 SecretID、SecretKey 以及调用地址（endpoint），endpoint 为 vpc.tencentcloudapi.com，具体参考各产品说明。
 
 # 获取安装
 ## 通过 Composer 安装
@@ -16,5 +16,5 @@
     > sudo mv composer.phar /usr/local/bin/composer
 
 2. 建议中国大陆地区的用户设置腾讯云镜像源：`composer config -g repos.packagist composer https://mirrors.tencent.com/composer/`
-3. 执行命令 `composer require tencentcloud/template` 添加依赖。
+3. 执行命令 `composer require tencentcloud/vpc` 添加依赖。
 

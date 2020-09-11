@@ -1,14 +1,14 @@
 {
-    "name": "tencentcloud/template",
-    "description": "TencentCloudApi php sdk template",
+    "name": "tencentcloud/vpc",
+    "description": "TencentCloudApi php sdk vpc",
     "type": "library",
-    "homepage": "https://github.com/tencentcloud-sdk-php/template",
+    "homepage": "https://github.com/tencentcloud-sdk-php/vpc",
     "license": "Apache-2.0",
     "authors": [
         {
             "name": "tencentcloudapi",
             "email": "tencentcloudapi@tencent.com",
-            "homepage": "https://github.com/tencentcloud-sdk-php/template",
+            "homepage": "https://github.com/tencentcloud-sdk-php/vpc",
             "role": "Developer"
         }
     ],
