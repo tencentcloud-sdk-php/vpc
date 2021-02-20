@@ -18,20 +18,28 @@ namespace TencentCloud\Vpc\V20170312\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeIpGeolocationDatabaseUrl请求参数结构体
+ * NotifyRoutes请求参数结构体
  *
- * @method string getType() 获取IP地理位置库协议类型，目前仅支持"ipv4"。
- * @method void setType(string $Type) 设置IP地理位置库协议类型，目前仅支持"ipv4"。
+ * @method string getRouteTableId() 获取路由表唯一ID。
+ * @method void setRouteTableId(string $RouteTableId) 设置路由表唯一ID。
+ * @method array getRouteItemIds() 获取路由策略唯一ID。
+ * @method void setRouteItemIds(array $RouteItemIds) 设置路由策略唯一ID。
  */
-class DescribeIpGeolocationDatabaseUrlRequest extends AbstractModel
+class NotifyRoutesRequest extends AbstractModel
 {
     /**
-     * @var string IP地理位置库协议类型，目前仅支持"ipv4"。
+     * @var string 路由表唯一ID。
      */
-    public $Type;
+    public $RouteTableId;
 
     /**
-     * @param string $Type IP地理位置库协议类型，目前仅支持"ipv4"。
+     * @var array 路由策略唯一ID。
+     */
+    public $RouteItemIds;
+
+    /**
+     * @param string $RouteTableId 路由表唯一ID。
+     * @param array $RouteItemIds 路由策略唯一ID。
      */
     function __construct()
     {
@@ -46,8 +54,12 @@ class DescribeIpGeolocationDatabaseUrlRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Type",$param) and $param["Type"] !== null) {
-            $this->Type = $param["Type"];
+        if (array_key_exists("RouteTableId",$param) and $param["RouteTableId"] !== null) {
+            $this->RouteTableId = $param["RouteTableId"];
+        }
+
+        if (array_key_exists("RouteItemIds",$param) and $param["RouteItemIds"] !== null) {
+            $this->RouteItemIds = $param["RouteItemIds"];
         }
     }
 }

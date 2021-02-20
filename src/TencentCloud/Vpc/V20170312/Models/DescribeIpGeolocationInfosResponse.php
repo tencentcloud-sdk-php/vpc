@@ -18,19 +18,26 @@ namespace TencentCloud\Vpc\V20170312\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DeleteRoutes返回参数结构体
+ * DescribeIpGeolocationInfos返回参数结构体
  *
- * @method array getRouteSet() 获取已删除的路由策略详情。
- * @method void setRouteSet(array $RouteSet) 设置已删除的路由策略详情。
+ * @method array getAddressInfo() 获取IP地址信息列表
+ * @method void setAddressInfo(array $AddressInfo) 设置IP地址信息列表
+ * @method integer getTotal() 获取IP地址信息个数
+ * @method void setTotal(integer $Total) 设置IP地址信息个数
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class DeleteRoutesResponse extends AbstractModel
+class DescribeIpGeolocationInfosResponse extends AbstractModel
 {
     /**
-     * @var array 已删除的路由策略详情。
+     * @var array IP地址信息列表
      */
-    public $RouteSet;
+    public $AddressInfo;
+
+    /**
+     * @var integer IP地址信息个数
+     */
+    public $Total;
 
     /**
      * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -38,7 +45,8 @@ class DeleteRoutesResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param array $RouteSet 已删除的路由策略详情。
+     * @param array $AddressInfo IP地址信息列表
+     * @param integer $Total IP地址信息个数
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -54,13 +62,17 @@ class DeleteRoutesResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("RouteSet",$param) and $param["RouteSet"] !== null) {
-            $this->RouteSet = [];
-            foreach ($param["RouteSet"] as $key => $value){
-                $obj = new Route();
+        if (array_key_exists("AddressInfo",$param) and $param["AddressInfo"] !== null) {
+            $this->AddressInfo = [];
+            foreach ($param["AddressInfo"] as $key => $value){
+                $obj = new IpGeolocationInfo();
                 $obj->deserialize($value);
-                array_push($this->RouteSet, $obj);
+                array_push($this->AddressInfo, $obj);
             }
+        }
+
+        if (array_key_exists("Total",$param) and $param["Total"] !== null) {
+            $this->Total = $param["Total"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

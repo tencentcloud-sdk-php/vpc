@@ -18,19 +18,29 @@ namespace TencentCloud\Vpc\V20170312\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DeleteRoutes返回参数结构体
+ * DescribeNatGatewaySourceIpTranslationNatRules返回参数结构体
  *
- * @method array getRouteSet() 获取已删除的路由策略详情。
- * @method void setRouteSet(array $RouteSet) 设置已删除的路由策略详情。
+ * @method array getSourceIpTranslationNatRuleSet() 获取NAT网关SNAT规则对象数组。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setSourceIpTranslationNatRuleSet(array $SourceIpTranslationNatRuleSet) 设置NAT网关SNAT规则对象数组。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method integer getTotalCount() 获取符合条件的NAT网关端口转发规则对象数目。
+ * @method void setTotalCount(integer $TotalCount) 设置符合条件的NAT网关端口转发规则对象数目。
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class DeleteRoutesResponse extends AbstractModel
+class DescribeNatGatewaySourceIpTranslationNatRulesResponse extends AbstractModel
 {
     /**
-     * @var array 已删除的路由策略详情。
+     * @var array NAT网关SNAT规则对象数组。
+注意：此字段可能返回 null，表示取不到有效值。
      */
-    public $RouteSet;
+    public $SourceIpTranslationNatRuleSet;
+
+    /**
+     * @var integer 符合条件的NAT网关端口转发规则对象数目。
+     */
+    public $TotalCount;
 
     /**
      * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -38,7 +48,9 @@ class DeleteRoutesResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param array $RouteSet 已删除的路由策略详情。
+     * @param array $SourceIpTranslationNatRuleSet NAT网关SNAT规则对象数组。
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param integer $TotalCount 符合条件的NAT网关端口转发规则对象数目。
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -54,13 +66,17 @@ class DeleteRoutesResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("RouteSet",$param) and $param["RouteSet"] !== null) {
-            $this->RouteSet = [];
-            foreach ($param["RouteSet"] as $key => $value){
-                $obj = new Route();
+        if (array_key_exists("SourceIpTranslationNatRuleSet",$param) and $param["SourceIpTranslationNatRuleSet"] !== null) {
+            $this->SourceIpTranslationNatRuleSet = [];
+            foreach ($param["SourceIpTranslationNatRuleSet"] as $key => $value){
+                $obj = new SourceIpTranslationNatRule();
                 $obj->deserialize($value);
-                array_push($this->RouteSet, $obj);
+                array_push($this->SourceIpTranslationNatRuleSet, $obj);
             }
+        }
+
+        if (array_key_exists("TotalCount",$param) and $param["TotalCount"] !== null) {
+            $this->TotalCount = $param["TotalCount"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

@@ -18,19 +18,22 @@ namespace TencentCloud\Vpc\V20170312\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DeleteRoutes返回参数结构体
+ * CloneSecurityGroup返回参数结构体
  *
- * @method array getRouteSet() 获取已删除的路由策略详情。
- * @method void setRouteSet(array $RouteSet) 设置已删除的路由策略详情。
+ * @method SecurityGroup getSecurityGroup() 获取安全组对象。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setSecurityGroup(SecurityGroup $SecurityGroup) 设置安全组对象。
+注意：此字段可能返回 null，表示取不到有效值。
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class DeleteRoutesResponse extends AbstractModel
+class CloneSecurityGroupResponse extends AbstractModel
 {
     /**
-     * @var array 已删除的路由策略详情。
+     * @var SecurityGroup 安全组对象。
+注意：此字段可能返回 null，表示取不到有效值。
      */
-    public $RouteSet;
+    public $SecurityGroup;
 
     /**
      * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -38,7 +41,8 @@ class DeleteRoutesResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param array $RouteSet 已删除的路由策略详情。
+     * @param SecurityGroup $SecurityGroup 安全组对象。
+注意：此字段可能返回 null，表示取不到有效值。
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -54,13 +58,9 @@ class DeleteRoutesResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("RouteSet",$param) and $param["RouteSet"] !== null) {
-            $this->RouteSet = [];
-            foreach ($param["RouteSet"] as $key => $value){
-                $obj = new Route();
-                $obj->deserialize($value);
-                array_push($this->RouteSet, $obj);
-            }
+        if (array_key_exists("SecurityGroup",$param) and $param["SecurityGroup"] !== null) {
+            $this->SecurityGroup = new SecurityGroup();
+            $this->SecurityGroup->deserialize($param["SecurityGroup"]);
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

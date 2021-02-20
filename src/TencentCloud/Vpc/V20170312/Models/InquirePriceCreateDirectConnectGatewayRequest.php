@@ -18,20 +18,16 @@ namespace TencentCloud\Vpc\V20170312\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeIpGeolocationDatabaseUrl请求参数结构体
+ * InquirePriceCreateDirectConnectGateway请求参数结构体
  *
- * @method string getType() 获取IP地理位置库协议类型，目前仅支持"ipv4"。
- * @method void setType(string $Type) 设置IP地理位置库协议类型，目前仅支持"ipv4"。
+
  */
-class DescribeIpGeolocationDatabaseUrlRequest extends AbstractModel
+class InquirePriceCreateDirectConnectGatewayRequest extends AbstractModel
 {
-    /**
-     * @var string IP地理位置库协议类型，目前仅支持"ipv4"。
-     */
-    public $Type;
+
 
     /**
-     * @param string $Type IP地理位置库协议类型，目前仅支持"ipv4"。
+
      */
     function __construct()
     {
@@ -46,8 +42,6 @@ class DescribeIpGeolocationDatabaseUrlRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Type",$param) and $param["Type"] !== null) {
-            $this->Type = $param["Type"];
-        }
+
     }
 }
