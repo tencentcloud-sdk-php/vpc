@@ -18,26 +18,26 @@ namespace TencentCloud\Vpc\V20170312\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * ReplaceRoutes返回参数结构体
+ * DescribeLocalGateway返回参数结构体
  *
- * @method array getOldRouteSet() 获取原路由策略信息。
- * @method void setOldRouteSet(array $OldRouteSet) 设置原路由策略信息。
- * @method array getNewRouteSet() 获取修改后的路由策略信息。
- * @method void setNewRouteSet(array $NewRouteSet) 设置修改后的路由策略信息。
+ * @method array getLocalGatewaySet() 获取本地网关信息集合
+ * @method void setLocalGatewaySet(array $LocalGatewaySet) 设置本地网关信息集合
+ * @method integer getTotalCount() 获取本地网关总数
+ * @method void setTotalCount(integer $TotalCount) 设置本地网关总数
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class ReplaceRoutesResponse extends AbstractModel
+class DescribeLocalGatewayResponse extends AbstractModel
 {
     /**
-     * @var array 原路由策略信息。
+     * @var array 本地网关信息集合
      */
-    public $OldRouteSet;
+    public $LocalGatewaySet;
 
     /**
-     * @var array 修改后的路由策略信息。
+     * @var integer 本地网关总数
      */
-    public $NewRouteSet;
+    public $TotalCount;
 
     /**
      * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -45,8 +45,8 @@ class ReplaceRoutesResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param array $OldRouteSet 原路由策略信息。
-     * @param array $NewRouteSet 修改后的路由策略信息。
+     * @param array $LocalGatewaySet 本地网关信息集合
+     * @param integer $TotalCount 本地网关总数
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -62,22 +62,17 @@ class ReplaceRoutesResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("OldRouteSet",$param) and $param["OldRouteSet"] !== null) {
-            $this->OldRouteSet = [];
-            foreach ($param["OldRouteSet"] as $key => $value){
-                $obj = new Route();
+        if (array_key_exists("LocalGatewaySet",$param) and $param["LocalGatewaySet"] !== null) {
+            $this->LocalGatewaySet = [];
+            foreach ($param["LocalGatewaySet"] as $key => $value){
+                $obj = new LocalGateway();
                 $obj->deserialize($value);
-                array_push($this->OldRouteSet, $obj);
+                array_push($this->LocalGatewaySet, $obj);
             }
         }
 
-        if (array_key_exists("NewRouteSet",$param) and $param["NewRouteSet"] !== null) {
-            $this->NewRouteSet = [];
-            foreach ($param["NewRouteSet"] as $key => $value){
-                $obj = new Route();
-                $obj->deserialize($value);
-                array_push($this->NewRouteSet, $obj);
-            }
+        if (array_key_exists("TotalCount",$param) and $param["TotalCount"] !== null) {
+            $this->TotalCount = $param["TotalCount"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
