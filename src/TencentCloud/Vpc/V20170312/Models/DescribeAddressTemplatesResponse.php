@@ -22,8 +22,8 @@ use TencentCloud\Common\AbstractModel;
  *
  * @method integer getTotalCount() 获取符合条件的实例数量。
  * @method void setTotalCount(integer $TotalCount) 设置符合条件的实例数量。
- * @method array getAddressTemplateSet() 获取IP地址模版。
- * @method void setAddressTemplateSet(array $AddressTemplateSet) 设置IP地址模版。
+ * @method array getAddressTemplateSet() 获取IP地址模板。
+ * @method void setAddressTemplateSet(array $AddressTemplateSet) 设置IP地址模板。
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
@@ -35,7 +35,7 @@ class DescribeAddressTemplatesResponse extends AbstractModel
     public $TotalCount;
 
     /**
-     * @var array IP地址模版。
+     * @var array IP地址模板。
      */
     public $AddressTemplateSet;
 
@@ -46,7 +46,7 @@ class DescribeAddressTemplatesResponse extends AbstractModel
 
     /**
      * @param integer $TotalCount 符合条件的实例数量。
-     * @param array $AddressTemplateSet IP地址模版。
+     * @param array $AddressTemplateSet IP地址模板。
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
