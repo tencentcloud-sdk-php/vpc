@@ -18,26 +18,26 @@ namespace TencentCloud\Vpc\V20170312\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * TransformAddress返回参数结构体
+ * DescribeSnapshotPolicies返回参数结构体
  *
- * @method integer getTaskId() 获取异步任务TaskId。可以使用[DescribeTaskResult](https://cloud.tencent.com/document/api/215/36271)接口查询任务状态。
- * @method void setTaskId(integer $TaskId) 设置异步任务TaskId。可以使用[DescribeTaskResult](https://cloud.tencent.com/document/api/215/36271)接口查询任务状态。
- * @method string getAddressId() 获取转为弹性公网IP后的唯一ID
- * @method void setAddressId(string $AddressId) 设置转为弹性公网IP后的唯一ID
+ * @method array getSnapshotPolicySet() 获取快照策略。
+ * @method void setSnapshotPolicySet(array $SnapshotPolicySet) 设置快照策略。
+ * @method integer getTotalCount() 获取符合条件的对象数。
+ * @method void setTotalCount(integer $TotalCount) 设置符合条件的对象数。
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class TransformAddressResponse extends AbstractModel
+class DescribeSnapshotPoliciesResponse extends AbstractModel
 {
     /**
-     * @var integer 异步任务TaskId。可以使用[DescribeTaskResult](https://cloud.tencent.com/document/api/215/36271)接口查询任务状态。
+     * @var array 快照策略。
      */
-    public $TaskId;
+    public $SnapshotPolicySet;
 
     /**
-     * @var string 转为弹性公网IP后的唯一ID
+     * @var integer 符合条件的对象数。
      */
-    public $AddressId;
+    public $TotalCount;
 
     /**
      * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -45,8 +45,8 @@ class TransformAddressResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param integer $TaskId 异步任务TaskId。可以使用[DescribeTaskResult](https://cloud.tencent.com/document/api/215/36271)接口查询任务状态。
-     * @param string $AddressId 转为弹性公网IP后的唯一ID
+     * @param array $SnapshotPolicySet 快照策略。
+     * @param integer $TotalCount 符合条件的对象数。
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -62,12 +62,17 @@ class TransformAddressResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("TaskId",$param) and $param["TaskId"] !== null) {
-            $this->TaskId = $param["TaskId"];
+        if (array_key_exists("SnapshotPolicySet",$param) and $param["SnapshotPolicySet"] !== null) {
+            $this->SnapshotPolicySet = [];
+            foreach ($param["SnapshotPolicySet"] as $key => $value){
+                $obj = new SnapshotPolicy();
+                $obj->deserialize($value);
+                array_push($this->SnapshotPolicySet, $obj);
+            }
         }
 
-        if (array_key_exists("AddressId",$param) and $param["AddressId"] !== null) {
-            $this->AddressId = $param["AddressId"];
+        if (array_key_exists("TotalCount",$param) and $param["TotalCount"] !== null) {
+            $this->TotalCount = $param["TotalCount"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

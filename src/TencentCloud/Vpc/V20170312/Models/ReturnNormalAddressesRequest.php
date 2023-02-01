@@ -18,20 +18,20 @@ namespace TencentCloud\Vpc\V20170312\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * LockCcnBandwidths请求参数结构体
+ * ReturnNormalAddresses请求参数结构体
  *
- * @method array getInstances() 获取带宽实例的唯一ID数组。
- * @method void setInstances(array $Instances) 设置带宽实例的唯一ID数组。
+ * @method array getAddressIps() 获取EIP 的 IP 地址,示例：101.35.139.183
+ * @method void setAddressIps(array $AddressIps) 设置EIP 的 IP 地址,示例：101.35.139.183
  */
-class LockCcnBandwidthsRequest extends AbstractModel
+class ReturnNormalAddressesRequest extends AbstractModel
 {
     /**
-     * @var array 带宽实例的唯一ID数组。
+     * @var array EIP 的 IP 地址,示例：101.35.139.183
      */
-    public $Instances;
+    public $AddressIps;
 
     /**
-     * @param array $Instances 带宽实例的唯一ID数组。
+     * @param array $AddressIps EIP 的 IP 地址,示例：101.35.139.183
      */
     function __construct()
     {
@@ -46,13 +46,8 @@ class LockCcnBandwidthsRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Instances",$param) and $param["Instances"] !== null) {
-            $this->Instances = [];
-            foreach ($param["Instances"] as $key => $value){
-                $obj = new CcnFlowLock();
-                $obj->deserialize($value);
-                array_push($this->Instances, $obj);
-            }
+        if (array_key_exists("AddressIps",$param) and $param["AddressIps"] !== null) {
+            $this->AddressIps = $param["AddressIps"];
         }
     }
 }

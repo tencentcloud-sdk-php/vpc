@@ -18,20 +18,20 @@ namespace TencentCloud\Vpc\V20170312\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * LockCcnBandwidths请求参数结构体
+ * DeleteSnapshotPolicies请求参数结构体
  *
- * @method array getInstances() 获取带宽实例的唯一ID数组。
- * @method void setInstances(array $Instances) 设置带宽实例的唯一ID数组。
+ * @method array getSnapshotPolicyIds() 获取快照策略Id。
+ * @method void setSnapshotPolicyIds(array $SnapshotPolicyIds) 设置快照策略Id。
  */
-class LockCcnBandwidthsRequest extends AbstractModel
+class DeleteSnapshotPoliciesRequest extends AbstractModel
 {
     /**
-     * @var array 带宽实例的唯一ID数组。
+     * @var array 快照策略Id。
      */
-    public $Instances;
+    public $SnapshotPolicyIds;
 
     /**
-     * @param array $Instances 带宽实例的唯一ID数组。
+     * @param array $SnapshotPolicyIds 快照策略Id。
      */
     function __construct()
     {
@@ -46,13 +46,8 @@ class LockCcnBandwidthsRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Instances",$param) and $param["Instances"] !== null) {
-            $this->Instances = [];
-            foreach ($param["Instances"] as $key => $value){
-                $obj = new CcnFlowLock();
-                $obj->deserialize($value);
-                array_push($this->Instances, $obj);
-            }
+        if (array_key_exists("SnapshotPolicyIds",$param) and $param["SnapshotPolicyIds"] !== null) {
+            $this->SnapshotPolicyIds = $param["SnapshotPolicyIds"];
         }
     }
 }

@@ -18,20 +18,20 @@ namespace TencentCloud\Vpc\V20170312\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * LockCcnBandwidths请求参数结构体
+ * DetachSnapshotInstances返回参数结构体
  *
- * @method array getInstances() 获取带宽实例的唯一ID数组。
- * @method void setInstances(array $Instances) 设置带宽实例的唯一ID数组。
+ * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class LockCcnBandwidthsRequest extends AbstractModel
+class DetachSnapshotInstancesResponse extends AbstractModel
 {
     /**
-     * @var array 带宽实例的唯一ID数组。
+     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
-    public $Instances;
+    public $RequestId;
 
     /**
-     * @param array $Instances 带宽实例的唯一ID数组。
+     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {
@@ -46,13 +46,8 @@ class LockCcnBandwidthsRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Instances",$param) and $param["Instances"] !== null) {
-            $this->Instances = [];
-            foreach ($param["Instances"] as $key => $value){
-                $obj = new CcnFlowLock();
-                $obj->deserialize($value);
-                array_push($this->Instances, $obj);
-            }
+        if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
+            $this->RequestId = $param["RequestId"];
         }
     }
 }

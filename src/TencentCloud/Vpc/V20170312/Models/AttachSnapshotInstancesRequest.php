@@ -18,20 +18,28 @@ namespace TencentCloud\Vpc\V20170312\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * LockCcnBandwidths请求参数结构体
+ * AttachSnapshotInstances请求参数结构体
  *
- * @method array getInstances() 获取带宽实例的唯一ID数组。
- * @method void setInstances(array $Instances) 设置带宽实例的唯一ID数组。
+ * @method string getSnapshotPolicyId() 获取快照策略Id。
+ * @method void setSnapshotPolicyId(string $SnapshotPolicyId) 设置快照策略Id。
+ * @method array getInstances() 获取关联实例信息。
+ * @method void setInstances(array $Instances) 设置关联实例信息。
  */
-class LockCcnBandwidthsRequest extends AbstractModel
+class AttachSnapshotInstancesRequest extends AbstractModel
 {
     /**
-     * @var array 带宽实例的唯一ID数组。
+     * @var string 快照策略Id。
+     */
+    public $SnapshotPolicyId;
+
+    /**
+     * @var array 关联实例信息。
      */
     public $Instances;
 
     /**
-     * @param array $Instances 带宽实例的唯一ID数组。
+     * @param string $SnapshotPolicyId 快照策略Id。
+     * @param array $Instances 关联实例信息。
      */
     function __construct()
     {
@@ -46,10 +54,14 @@ class LockCcnBandwidthsRequest extends AbstractModel
         if ($param === null) {
             return;
         }
+        if (array_key_exists("SnapshotPolicyId",$param) and $param["SnapshotPolicyId"] !== null) {
+            $this->SnapshotPolicyId = $param["SnapshotPolicyId"];
+        }
+
         if (array_key_exists("Instances",$param) and $param["Instances"] !== null) {
             $this->Instances = [];
             foreach ($param["Instances"] as $key => $value){
-                $obj = new CcnFlowLock();
+                $obj = new SnapshotInstance();
                 $obj->deserialize($value);
                 array_push($this->Instances, $obj);
             }
