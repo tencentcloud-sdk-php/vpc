@@ -18,20 +18,16 @@ namespace TencentCloud\Vpc\V20170312\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeCcnRegionBandwidthLimits请求参数结构体
+ * 云联网实例对象，该对象特用于运营端使用，不建议给租户的接口中提供该复杂类型。
  *
- * @method string getCcnId() 获取CCN实例ID，形如：ccn-f49l6u0z。
- * @method void setCcnId(string $CcnId) 设置CCN实例ID，形如：ccn-f49l6u0z。
+
  */
-class DescribeCcnRegionBandwidthLimitsRequest extends AbstractModel
+class CcnInstanceInfo extends AbstractModel
 {
-    /**
-     * @var string CCN实例ID，形如：ccn-f49l6u0z。
-     */
-    public $CcnId;
+
 
     /**
-     * @param string $CcnId CCN实例ID，形如：ccn-f49l6u0z。
+
      */
     function __construct()
     {
@@ -46,8 +42,6 @@ class DescribeCcnRegionBandwidthLimitsRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("CcnId",$param) and $param["CcnId"] !== null) {
-            $this->CcnId = $param["CcnId"];
-        }
+
     }
 }
