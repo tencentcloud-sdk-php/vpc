@@ -18,28 +18,16 @@ namespace TencentCloud\Vpc\V20170312\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 修改VPN状态参数
+ * 云联网（CCN）地域出带宽上限。
  *
- * @method string getRouteId() 获取VPN网关路由ID。
- * @method void setRouteId(string $RouteId) 设置VPN网关路由ID。
- * @method string getStatus() 获取VPN网关状态, ENABLE 启用, DISABLE禁用。
- * @method void setStatus(string $Status) 设置VPN网关状态, ENABLE 启用, DISABLE禁用。
+
  */
-class VpnGatewayRouteModify extends AbstractModel
+class CcnRegionBandwidthLimitInfo extends AbstractModel
 {
-    /**
-     * @var string VPN网关路由ID。
-     */
-    public $RouteId;
+
 
     /**
-     * @var string VPN网关状态, ENABLE 启用, DISABLE禁用。
-     */
-    public $Status;
 
-    /**
-     * @param string $RouteId VPN网关路由ID。
-     * @param string $Status VPN网关状态, ENABLE 启用, DISABLE禁用。
      */
     function __construct()
     {
@@ -54,12 +42,6 @@ class VpnGatewayRouteModify extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("RouteId",$param) and $param["RouteId"] !== null) {
-            $this->RouteId = $param["RouteId"];
-        }
 
-        if (array_key_exists("Status",$param) and $param["Status"] !== null) {
-            $this->Status = $param["Status"];
-        }
     }
 }
