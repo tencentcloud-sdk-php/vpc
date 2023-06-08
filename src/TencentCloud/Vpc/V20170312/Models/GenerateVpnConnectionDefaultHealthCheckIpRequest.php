@@ -18,28 +18,20 @@ namespace TencentCloud\Vpc\V20170312\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeFlowLog请求参数结构体
+ * GenerateVpnConnectionDefaultHealthCheckIp请求参数结构体
  *
- * @method string getVpcId() 获取私用网络ID或者统一ID，建议使用统一ID。
- * @method void setVpcId(string $VpcId) 设置私用网络ID或者统一ID，建议使用统一ID。
- * @method string getFlowLogId() 获取流日志唯一ID。
- * @method void setFlowLogId(string $FlowLogId) 设置流日志唯一ID。
+ * @method string getVpnGatewayId() 获取VPN网关id， 例如：vpngw-1w9tue3d
+ * @method void setVpnGatewayId(string $VpnGatewayId) 设置VPN网关id， 例如：vpngw-1w9tue3d
  */
-class DescribeFlowLogRequest extends AbstractModel
+class GenerateVpnConnectionDefaultHealthCheckIpRequest extends AbstractModel
 {
     /**
-     * @var string 私用网络ID或者统一ID，建议使用统一ID。
+     * @var string VPN网关id， 例如：vpngw-1w9tue3d
      */
-    public $VpcId;
+    public $VpnGatewayId;
 
     /**
-     * @var string 流日志唯一ID。
-     */
-    public $FlowLogId;
-
-    /**
-     * @param string $VpcId 私用网络ID或者统一ID，建议使用统一ID。
-     * @param string $FlowLogId 流日志唯一ID。
+     * @param string $VpnGatewayId VPN网关id， 例如：vpngw-1w9tue3d
      */
     function __construct()
     {
@@ -54,12 +46,8 @@ class DescribeFlowLogRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("VpcId",$param) and $param["VpcId"] !== null) {
-            $this->VpcId = $param["VpcId"];
-        }
-
-        if (array_key_exists("FlowLogId",$param) and $param["FlowLogId"] !== null) {
-            $this->FlowLogId = $param["FlowLogId"];
+        if (array_key_exists("VpnGatewayId",$param) and $param["VpnGatewayId"] !== null) {
+            $this->VpnGatewayId = $param["VpnGatewayId"];
         }
     }
 }

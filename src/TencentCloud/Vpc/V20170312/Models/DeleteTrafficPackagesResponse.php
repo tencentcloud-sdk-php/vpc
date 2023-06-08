@@ -18,28 +18,20 @@ namespace TencentCloud\Vpc\V20170312\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeFlowLog请求参数结构体
+ * DeleteTrafficPackages返回参数结构体
  *
- * @method string getVpcId() 获取私用网络ID或者统一ID，建议使用统一ID。
- * @method void setVpcId(string $VpcId) 设置私用网络ID或者统一ID，建议使用统一ID。
- * @method string getFlowLogId() 获取流日志唯一ID。
- * @method void setFlowLogId(string $FlowLogId) 设置流日志唯一ID。
+ * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class DescribeFlowLogRequest extends AbstractModel
+class DeleteTrafficPackagesResponse extends AbstractModel
 {
     /**
-     * @var string 私用网络ID或者统一ID，建议使用统一ID。
+     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
-    public $VpcId;
+    public $RequestId;
 
     /**
-     * @var string 流日志唯一ID。
-     */
-    public $FlowLogId;
-
-    /**
-     * @param string $VpcId 私用网络ID或者统一ID，建议使用统一ID。
-     * @param string $FlowLogId 流日志唯一ID。
+     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {
@@ -54,12 +46,8 @@ class DescribeFlowLogRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("VpcId",$param) and $param["VpcId"] !== null) {
-            $this->VpcId = $param["VpcId"];
-        }
-
-        if (array_key_exists("FlowLogId",$param) and $param["FlowLogId"] !== null) {
-            $this->FlowLogId = $param["FlowLogId"];
+        if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
+            $this->RequestId = $param["RequestId"];
         }
     }
 }

@@ -18,28 +18,20 @@ namespace TencentCloud\Vpc\V20170312\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeFlowLog请求参数结构体
+ * DescribeSubnetResourceDashboard请求参数结构体
  *
- * @method string getVpcId() 获取私用网络ID或者统一ID，建议使用统一ID。
- * @method void setVpcId(string $VpcId) 设置私用网络ID或者统一ID，建议使用统一ID。
- * @method string getFlowLogId() 获取流日志唯一ID。
- * @method void setFlowLogId(string $FlowLogId) 设置流日志唯一ID。
+ * @method array getSubnetIds() 获取Subnet实例ID，例如：subnet-f1xjkw1b。
+ * @method void setSubnetIds(array $SubnetIds) 设置Subnet实例ID，例如：subnet-f1xjkw1b。
  */
-class DescribeFlowLogRequest extends AbstractModel
+class DescribeSubnetResourceDashboardRequest extends AbstractModel
 {
     /**
-     * @var string 私用网络ID或者统一ID，建议使用统一ID。
+     * @var array Subnet实例ID，例如：subnet-f1xjkw1b。
      */
-    public $VpcId;
+    public $SubnetIds;
 
     /**
-     * @var string 流日志唯一ID。
-     */
-    public $FlowLogId;
-
-    /**
-     * @param string $VpcId 私用网络ID或者统一ID，建议使用统一ID。
-     * @param string $FlowLogId 流日志唯一ID。
+     * @param array $SubnetIds Subnet实例ID，例如：subnet-f1xjkw1b。
      */
     function __construct()
     {
@@ -54,12 +46,8 @@ class DescribeFlowLogRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("VpcId",$param) and $param["VpcId"] !== null) {
-            $this->VpcId = $param["VpcId"];
-        }
-
-        if (array_key_exists("FlowLogId",$param) and $param["FlowLogId"] !== null) {
-            $this->FlowLogId = $param["FlowLogId"];
+        if (array_key_exists("SubnetIds",$param) and $param["SubnetIds"] !== null) {
+            $this->SubnetIds = $param["SubnetIds"];
         }
     }
 }

@@ -18,26 +18,26 @@ namespace TencentCloud\Vpc\V20170312\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * CreateVpnGatewaySslServer返回参数结构体
+ * GenerateVpnConnectionDefaultHealthCheckIp返回参数结构体
  *
- * @method integer getTaskId() 获取创建SSL-VPN server 异步任务ID。
- * @method void setTaskId(integer $TaskId) 设置创建SSL-VPN server 异步任务ID。
- * @method string getSslVpnServerId() 获取SSL-VPN-SERVER 唯一ID。
- * @method void setSslVpnServerId(string $SslVpnServerId) 设置SSL-VPN-SERVER 唯一ID。
+ * @method string getHealthCheckLocalIp() 获取VPN通道健康检查本端ip
+ * @method void setHealthCheckLocalIp(string $HealthCheckLocalIp) 设置VPN通道健康检查本端ip
+ * @method string getHealthCheckRemoteIp() 获取VPN通道健康检查对端ip
+ * @method void setHealthCheckRemoteIp(string $HealthCheckRemoteIp) 设置VPN通道健康检查对端ip
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class CreateVpnGatewaySslServerResponse extends AbstractModel
+class GenerateVpnConnectionDefaultHealthCheckIpResponse extends AbstractModel
 {
     /**
-     * @var integer 创建SSL-VPN server 异步任务ID。
+     * @var string VPN通道健康检查本端ip
      */
-    public $TaskId;
+    public $HealthCheckLocalIp;
 
     /**
-     * @var string SSL-VPN-SERVER 唯一ID。
+     * @var string VPN通道健康检查对端ip
      */
-    public $SslVpnServerId;
+    public $HealthCheckRemoteIp;
 
     /**
      * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -45,8 +45,8 @@ class CreateVpnGatewaySslServerResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param integer $TaskId 创建SSL-VPN server 异步任务ID。
-     * @param string $SslVpnServerId SSL-VPN-SERVER 唯一ID。
+     * @param string $HealthCheckLocalIp VPN通道健康检查本端ip
+     * @param string $HealthCheckRemoteIp VPN通道健康检查对端ip
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -62,12 +62,12 @@ class CreateVpnGatewaySslServerResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("TaskId",$param) and $param["TaskId"] !== null) {
-            $this->TaskId = $param["TaskId"];
+        if (array_key_exists("HealthCheckLocalIp",$param) and $param["HealthCheckLocalIp"] !== null) {
+            $this->HealthCheckLocalIp = $param["HealthCheckLocalIp"];
         }
 
-        if (array_key_exists("SslVpnServerId",$param) and $param["SslVpnServerId"] !== null) {
-            $this->SslVpnServerId = $param["SslVpnServerId"];
+        if (array_key_exists("HealthCheckRemoteIp",$param) and $param["HealthCheckRemoteIp"] !== null) {
+            $this->HealthCheckRemoteIp = $param["HealthCheckRemoteIp"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

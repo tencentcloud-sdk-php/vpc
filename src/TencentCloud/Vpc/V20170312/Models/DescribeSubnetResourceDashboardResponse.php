@@ -18,26 +18,19 @@ namespace TencentCloud\Vpc\V20170312\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * CreateVpnGatewaySslServer返回参数结构体
+ * DescribeSubnetResourceDashboard返回参数结构体
  *
- * @method integer getTaskId() 获取创建SSL-VPN server 异步任务ID。
- * @method void setTaskId(integer $TaskId) 设置创建SSL-VPN server 异步任务ID。
- * @method string getSslVpnServerId() 获取SSL-VPN-SERVER 唯一ID。
- * @method void setSslVpnServerId(string $SslVpnServerId) 设置SSL-VPN-SERVER 唯一ID。
+ * @method array getResourceStatisticsSet() 获取资源统计结果。
+ * @method void setResourceStatisticsSet(array $ResourceStatisticsSet) 设置资源统计结果。
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class CreateVpnGatewaySslServerResponse extends AbstractModel
+class DescribeSubnetResourceDashboardResponse extends AbstractModel
 {
     /**
-     * @var integer 创建SSL-VPN server 异步任务ID。
+     * @var array 资源统计结果。
      */
-    public $TaskId;
-
-    /**
-     * @var string SSL-VPN-SERVER 唯一ID。
-     */
-    public $SslVpnServerId;
+    public $ResourceStatisticsSet;
 
     /**
      * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -45,8 +38,7 @@ class CreateVpnGatewaySslServerResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param integer $TaskId 创建SSL-VPN server 异步任务ID。
-     * @param string $SslVpnServerId SSL-VPN-SERVER 唯一ID。
+     * @param array $ResourceStatisticsSet 资源统计结果。
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -62,12 +54,13 @@ class CreateVpnGatewaySslServerResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("TaskId",$param) and $param["TaskId"] !== null) {
-            $this->TaskId = $param["TaskId"];
-        }
-
-        if (array_key_exists("SslVpnServerId",$param) and $param["SslVpnServerId"] !== null) {
-            $this->SslVpnServerId = $param["SslVpnServerId"];
+        if (array_key_exists("ResourceStatisticsSet",$param) and $param["ResourceStatisticsSet"] !== null) {
+            $this->ResourceStatisticsSet = [];
+            foreach ($param["ResourceStatisticsSet"] as $key => $value){
+                $obj = new ResourceStatistics();
+                $obj->deserialize($value);
+                array_push($this->ResourceStatisticsSet, $obj);
+            }
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
