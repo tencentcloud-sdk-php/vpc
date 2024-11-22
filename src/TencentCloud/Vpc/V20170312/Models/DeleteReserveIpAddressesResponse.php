@@ -18,27 +18,19 @@ namespace TencentCloud\Vpc\V20170312\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * CloneSecurityGroup返回参数结构体
+ * DeleteReserveIpAddresses返回参数结构体
  *
- * @method SecurityGroup getSecurityGroup() 获取安全组对象。
- * @method void setSecurityGroup(SecurityGroup $SecurityGroup) 设置安全组对象。
  * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
-class CloneSecurityGroupResponse extends AbstractModel
+class DeleteReserveIpAddressesResponse extends AbstractModel
 {
-    /**
-     * @var SecurityGroup 安全组对象。
-     */
-    public $SecurityGroup;
-
     /**
      * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     public $RequestId;
 
     /**
-     * @param SecurityGroup $SecurityGroup 安全组对象。
      * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -54,11 +46,6 @@ class CloneSecurityGroupResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("SecurityGroup",$param) and $param["SecurityGroup"] !== null) {
-            $this->SecurityGroup = new SecurityGroup();
-            $this->SecurityGroup->deserialize($param["SecurityGroup"]);
-        }
-
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
             $this->RequestId = $param["RequestId"];
         }

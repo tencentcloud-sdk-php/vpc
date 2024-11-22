@@ -18,19 +18,19 @@ namespace TencentCloud\Vpc\V20170312\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * CloneSecurityGroup返回参数结构体
+ * CreateReserveIpAddresses返回参数结构体
  *
- * @method SecurityGroup getSecurityGroup() 获取安全组对象。
- * @method void setSecurityGroup(SecurityGroup $SecurityGroup) 设置安全组对象。
+ * @method array getReserveIpAddressSet() 获取内网保留 IP返回信息
+ * @method void setReserveIpAddressSet(array $ReserveIpAddressSet) 设置内网保留 IP返回信息
  * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
-class CloneSecurityGroupResponse extends AbstractModel
+class CreateReserveIpAddressesResponse extends AbstractModel
 {
     /**
-     * @var SecurityGroup 安全组对象。
+     * @var array 内网保留 IP返回信息
      */
-    public $SecurityGroup;
+    public $ReserveIpAddressSet;
 
     /**
      * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
@@ -38,7 +38,7 @@ class CloneSecurityGroupResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param SecurityGroup $SecurityGroup 安全组对象。
+     * @param array $ReserveIpAddressSet 内网保留 IP返回信息
      * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -54,9 +54,13 @@ class CloneSecurityGroupResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("SecurityGroup",$param) and $param["SecurityGroup"] !== null) {
-            $this->SecurityGroup = new SecurityGroup();
-            $this->SecurityGroup->deserialize($param["SecurityGroup"]);
+        if (array_key_exists("ReserveIpAddressSet",$param) and $param["ReserveIpAddressSet"] !== null) {
+            $this->ReserveIpAddressSet = [];
+            foreach ($param["ReserveIpAddressSet"] as $key => $value){
+                $obj = new ReserveIpAddressInfo();
+                $obj->deserialize($value);
+                array_push($this->ReserveIpAddressSet, $obj);
+            }
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
