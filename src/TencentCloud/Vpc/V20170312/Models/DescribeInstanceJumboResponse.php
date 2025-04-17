@@ -18,26 +18,19 @@ namespace TencentCloud\Vpc\V20170312\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * AssignIpv6CidrBlock返回参数结构体
+ * DescribeInstanceJumbo返回参数结构体
  *
- * @method string getIpv6CidrBlock() 获取分配的 `IPv6` 网段。形如：`3402:4e00:20:1000::/56`。
- * @method void setIpv6CidrBlock(string $Ipv6CidrBlock) 设置分配的 `IPv6` 网段。形如：`3402:4e00:20:1000::/56`。
- * @method string getAddressType() 获取申请IPv6 Cidr 的类型，`GUA`,  `ULA`
- * @method void setAddressType(string $AddressType) 设置申请IPv6 Cidr 的类型，`GUA`,  `ULA`
+ * @method array getInstanceJumboSet() 获取云服务器巨帧状态
+ * @method void setInstanceJumboSet(array $InstanceJumboSet) 设置云服务器巨帧状态
  * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
-class AssignIpv6CidrBlockResponse extends AbstractModel
+class DescribeInstanceJumboResponse extends AbstractModel
 {
     /**
-     * @var string 分配的 `IPv6` 网段。形如：`3402:4e00:20:1000::/56`。
+     * @var array 云服务器巨帧状态
      */
-    public $Ipv6CidrBlock;
-
-    /**
-     * @var string 申请IPv6 Cidr 的类型，`GUA`,  `ULA`
-     */
-    public $AddressType;
+    public $InstanceJumboSet;
 
     /**
      * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
@@ -45,8 +38,7 @@ class AssignIpv6CidrBlockResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param string $Ipv6CidrBlock 分配的 `IPv6` 网段。形如：`3402:4e00:20:1000::/56`。
-     * @param string $AddressType 申请IPv6 Cidr 的类型，`GUA`,  `ULA`
+     * @param array $InstanceJumboSet 云服务器巨帧状态
      * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -62,12 +54,13 @@ class AssignIpv6CidrBlockResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Ipv6CidrBlock",$param) and $param["Ipv6CidrBlock"] !== null) {
-            $this->Ipv6CidrBlock = $param["Ipv6CidrBlock"];
-        }
-
-        if (array_key_exists("AddressType",$param) and $param["AddressType"] !== null) {
-            $this->AddressType = $param["AddressType"];
+        if (array_key_exists("InstanceJumboSet",$param) and $param["InstanceJumboSet"] !== null) {
+            $this->InstanceJumboSet = [];
+            foreach ($param["InstanceJumboSet"] as $key => $value){
+                $obj = new InstanceJumbo();
+                $obj->deserialize($value);
+                array_push($this->InstanceJumboSet, $obj);
+            }
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
