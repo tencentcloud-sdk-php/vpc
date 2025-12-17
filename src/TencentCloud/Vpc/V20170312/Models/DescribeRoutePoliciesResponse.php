@@ -18,34 +18,26 @@ namespace TencentCloud\Vpc\V20170312\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeVpcEndPointServiceWhiteList返回参数结构体
+ * DescribeRoutePolicies返回参数结构体
  *
- * @method array getVpcEndpointServiceUserSet() 获取白名单对象数组。已废弃
- * @method void setVpcEndpointServiceUserSet(array $VpcEndpointServiceUserSet) 设置白名单对象数组。已废弃
- * @method array getVpcEndPointServiceUserSet() 获取白名单对象数组。
- * @method void setVpcEndPointServiceUserSet(array $VpcEndPointServiceUserSet) 设置白名单对象数组。
- * @method integer getTotalCount() 获取符合条件的白名单个数。
- * @method void setTotalCount(integer $TotalCount) 设置符合条件的白名单个数。
+ * @method integer getTotalCount() 获取符合条件的对象数。
+ * @method void setTotalCount(integer $TotalCount) 设置符合条件的对象数。
+ * @method array getRoutePolicySet() 获取路由策略对象。
+ * @method void setRoutePolicySet(array $RoutePolicySet) 设置路由策略对象。
  * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
-class DescribeVpcEndPointServiceWhiteListResponse extends AbstractModel
+class DescribeRoutePoliciesResponse extends AbstractModel
 {
     /**
-     * @var array 白名单对象数组。已废弃
-     * @deprecated
-     */
-    public $VpcEndpointServiceUserSet;
-
-    /**
-     * @var array 白名单对象数组。
-     */
-    public $VpcEndPointServiceUserSet;
-
-    /**
-     * @var integer 符合条件的白名单个数。
+     * @var integer 符合条件的对象数。
      */
     public $TotalCount;
+
+    /**
+     * @var array 路由策略对象。
+     */
+    public $RoutePolicySet;
 
     /**
      * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
@@ -53,9 +45,8 @@ class DescribeVpcEndPointServiceWhiteListResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param array $VpcEndpointServiceUserSet 白名单对象数组。已废弃
-     * @param array $VpcEndPointServiceUserSet 白名单对象数组。
-     * @param integer $TotalCount 符合条件的白名单个数。
+     * @param integer $TotalCount 符合条件的对象数。
+     * @param array $RoutePolicySet 路由策略对象。
      * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -71,26 +62,17 @@ class DescribeVpcEndPointServiceWhiteListResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("VpcEndpointServiceUserSet",$param) and $param["VpcEndpointServiceUserSet"] !== null) {
-            $this->VpcEndpointServiceUserSet = [];
-            foreach ($param["VpcEndpointServiceUserSet"] as $key => $value){
-                $obj = new VpcEndPointServiceUser();
-                $obj->deserialize($value);
-                array_push($this->VpcEndpointServiceUserSet, $obj);
-            }
-        }
-
-        if (array_key_exists("VpcEndPointServiceUserSet",$param) and $param["VpcEndPointServiceUserSet"] !== null) {
-            $this->VpcEndPointServiceUserSet = [];
-            foreach ($param["VpcEndPointServiceUserSet"] as $key => $value){
-                $obj = new VpcEndPointServiceUser();
-                $obj->deserialize($value);
-                array_push($this->VpcEndPointServiceUserSet, $obj);
-            }
-        }
-
         if (array_key_exists("TotalCount",$param) and $param["TotalCount"] !== null) {
             $this->TotalCount = $param["TotalCount"];
+        }
+
+        if (array_key_exists("RoutePolicySet",$param) and $param["RoutePolicySet"] !== null) {
+            $this->RoutePolicySet = [];
+            foreach ($param["RoutePolicySet"] as $key => $value){
+                $obj = new RoutePolicy();
+                $obj->deserialize($value);
+                array_push($this->RoutePolicySet, $obj);
+            }
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
