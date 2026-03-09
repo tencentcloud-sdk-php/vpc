@@ -18,20 +18,28 @@ namespace TencentCloud\Vpc\V20170312\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * NAT地域地区对象
+ * SSL VPN Server DnsServers
  *
- * @method string getRegion() 获取地域ID，如：ap-guangzhou。
- * @method void setRegion(string $Region) 设置地域ID，如：ap-guangzhou。
+ * @method string getPrimaryDns() 获取主DNS配置
+ * @method void setPrimaryDns(string $PrimaryDns) 设置主DNS配置
+ * @method string getSecondaryDns() 获取备DNS配置
+ * @method void setSecondaryDns(string $SecondaryDns) 设置备DNS配置
  */
-class NatRegionInfoWithArea extends AbstractModel
+class DnsServers extends AbstractModel
 {
     /**
-     * @var string 地域ID，如：ap-guangzhou。
+     * @var string 主DNS配置
      */
-    public $Region;
+    public $PrimaryDns;
 
     /**
-     * @param string $Region 地域ID，如：ap-guangzhou。
+     * @var string 备DNS配置
+     */
+    public $SecondaryDns;
+
+    /**
+     * @param string $PrimaryDns 主DNS配置
+     * @param string $SecondaryDns 备DNS配置
      */
     function __construct()
     {
@@ -46,8 +54,12 @@ class NatRegionInfoWithArea extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Region",$param) and $param["Region"] !== null) {
-            $this->Region = $param["Region"];
+        if (array_key_exists("PrimaryDns",$param) and $param["PrimaryDns"] !== null) {
+            $this->PrimaryDns = $param["PrimaryDns"];
+        }
+
+        if (array_key_exists("SecondaryDns",$param) and $param["SecondaryDns"] !== null) {
+            $this->SecondaryDns = $param["SecondaryDns"];
         }
     }
 }
